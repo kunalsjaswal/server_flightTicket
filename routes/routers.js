@@ -1,6 +1,6 @@
 import express from 'express'
 import { addNewUser, getUserData, userLogin, welcomeApi } from '../controllers/posts.js';
-import { addAdminTicket, buyTicket, deleteTicket, showAllTickets, showUserTickets } from '../controllers/tickets.js';
+import { addAdminTicket, buyTicket, deleteTicket, showAllTickets, showUserTickets, showAllBoughtTickets } from '../controllers/tickets.js';
 
 const router = express.Router();
 
@@ -14,5 +14,6 @@ router.delete('/deleteTicket/:id',deleteTicket)
 router.post('/buyTicket/:id',buyTicket)
 router.get('/showAllTickets',showAllTickets)
 router.get('/showuserTickets/:id',showUserTickets)
+router.get('/allBoughtTickets',showAllBoughtTickets)
 
 export default router

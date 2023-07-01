@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const userTickets = mongoose.Schema({
     userId:String,
+    username:String,
     source:String,
     destination:String,
     price:Number,

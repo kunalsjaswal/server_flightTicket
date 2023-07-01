@@ -62,3 +62,4 @@ export const getUserData=async(req,res)=>{
         res.status(500).json({error:"Backend Error!"})    
     }
 }
+

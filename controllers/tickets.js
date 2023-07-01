@@ -23,8 +23,7 @@ export const deleteTicket=async(req,res)=>{
         const ticket= await tickets.findByIdAndDelete(req.params.id)
         res.status(201).json({msg:"ticket deleted"})
     } catch (error) {
-       return res.status(500).json({error:error.message})
-        
+       return res.status(500).json({error:error.message})   
     }
 }
 
@@ -32,6 +31,7 @@ export const buyTicket=async(req,res)=>{
     try {
         const buy=await ticketSold.create({
             userId:req.params.id,
+            username:req.body.username,
             source:req.body.source,
             destination:req.body.destination,
             price:req.body.price,
@@ -63,5 +63,16 @@ export const showUserTickets=async(req,res)=>{
         res.status(200).json(userBoughtTickets) 
     } catch (error) {
         res.status(500).json({status:false,error:error.message})
+    }
+}
+
+
+
+export const showAllBoughtTickets=async(req,res)=>{
+    try {
+        const tickets  = await ticketSold.find()
+        res.status(200).json(tickets)
+    } catch (error) {
+        res.status(500).json({error:"Backend Error!"})       
     }
 }
